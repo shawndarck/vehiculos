@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Inicio de sesion</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"></link>
+    </h:head>
+    <h:body>
+        <div class="container-fluid">
+            <div class="row" style="padding-top: 10%">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+
+                    <h:form id="formUsuario">
+
+                        <div class="row">
+                            <div class="col">
+                                <h:outputLabel for="formIdUsuario">Ingrese un numero aleatorio de seis digitos</h:outputLabel>
+                                <h:inputText 
+                                    value="#{gestionUsuario.usuReg.idUsuario}"
+                                    maxlength="20"
+                                    required="true"
+                                    requiredMessage="INGRESE UN NUMERO"
+                                    class="form-control" 
+                                    id="formIdUsuario">
+
+                                </h:inputText>
+                                <h:message for="formIdUsuario" style="color: red"></h:message>
+                            </div>
+                        </div>
+                        <!-- segundo row-->
+
+                        <div class="row">
+                            <div class="col">
+
+                                <h:outputLabel for="formNombres">Digite un Usuario</h:outputLabel>
+                                <h:inputText 
+                                    value="#{gestionUsuario.usuReg.nombreUsuario}"
+                                    maxlength="50"
+                                    required="true"
+                                    requiredMessage="INGRESE NOMBRE Usuario"
+                                    class="form-control" 
+                                    id="formNombres">
+                                </h:inputText>
+                                <h:message for="formNombres" style="color: red"></h:message>
+
+                            </div>   
+
+                            <td></td>
+                              <td></td>
+                                <td></td>
+
+                            <div class="form-group">
+                                <h:outputLabel for="formPassword">Contraseña</h:outputLabel>
+                                <h:inputSecret 
+                                    value="#{gestionUsuario.usuReg.password}"
+                                    maxlength="30"
+                                    required="true"
+                                    requiredMessage="Por favor igrese la contraseña"
+                                    class="form-control" id="formPassword"></h:inputSecret>
+                                <h:message for="formPassword" style="color: red"></h:message>
+                            </div>
+
+
+
+
+                        </div>
+
+
+
+
+
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="recuperar.xhtml">¿olvidó su contraseña?</a></div>
+                            <div class="col-md-6">
+                                <a href="index.xhtml">Ya estoy registrado</a></div>
+
+                        </div>
+                        <br></br>
+                        <h:commandButton action="#{gestionUsuario.registrarUsuario()}"  class="btn btn-primary" value="Registrar Usuario"></h:commandButton>
+
+                    </h:form>
+
+
+
+
+
+                    <!-- ojo!!!! -->
+
+                </div>
+
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+        <li><a href="Usuari.xhtml" class="button primary icon solid fa-download">Usuarios</a></li>
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    </h:body>
+</html>

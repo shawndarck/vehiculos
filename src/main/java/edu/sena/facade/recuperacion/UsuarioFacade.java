@@ -6,9 +6,12 @@
 package edu.sena.facade.recuperacion;
 
 import edu.sena.entitty.recuperacion.Usuario;
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -28,5 +31,26 @@ public class UsuarioFacade extends AbstractFacade<Usuario> implements UsuarioFac
     public UsuarioFacade() {
         super(Usuario.class);
     }
+    
+    
+    
+    @Override
+    public boolean registrarUsuario(Usuario usuReg){
+    
+        try {
+            Query q = em.createNativeQuery("INSERT INTO usuario (idUsuario, nombreUsuario, password) VALUES (?, ?, ?);");
+            q.setParameter(1, usuReg.getIdUsuario());
+            q.setParameter(2, usuReg.getNombreUsuario());
+            q.setParameter(3, usuReg.getPassword());
+            q.executeUpdate();
+            return TRUE;
+        } catch (Exception e) {
+            System.out.println("ERROR ::registrarUsuario -->"+e.getMessage());
+            return FALSE;
+        }
+    
+    }
+    
+    
     
 }

@@ -5,21 +5,41 @@
  */
 package edu.sena.controller.recuperacion;
 
+import edu.sena.entitty.recuperacion.Usuario;
+import edu.sena.facade.recuperacion.UsuarioFacadeLocal;
 import javax.inject.Named;
-import javax.enterprise.context.Dependent;
+import javax.enterprise.context.SessionScoped;
+import java.io.Serializable;
+import javax.ejb.EJB;
 
 /**
  *
  * @author Julian Paredes
  */
-@Named(value = "gestion")
-@Dependent
-public class gestionUsuario {
+@Named(value = "gestionUsuario")
+@SessionScoped
+public class gestionUsuario implements Serializable {
+    @EJB
+    UsuarioFacadeLocal usuarioFacadeLocal;
+
+    private Usuario usuReg = new Usuario();
 
     /**
-     * Creates a new instance of gestion
+     * Creates a new instance of gestionUsuario
      */
     public gestionUsuario() {
     }
     
+    public void registrarUsuario(){
+        usuarioFacadeLocal.registrarUsuario(usuReg);
+    }
+
+    public Usuario getUsuReg() {
+        return usuReg;
+    }
+
+    public void setUsuReg(Usuario usuReg) {
+        this.usuReg = usuReg;
+    }
+
 }

@@ -30,4 +30,6 @@ public interface UsuarioFacadeLocal {
 
     int count();
     
+    public boolean registrarUsuario(Usuario usuReg);
+    
 }
