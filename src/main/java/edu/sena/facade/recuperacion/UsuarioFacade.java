@@ -44,6 +44,8 @@ public class UsuarioFacade extends AbstractFacade<Usuario> implements UsuarioFac
             q.setParameter(3, usuReg.getPassword());
             q.executeUpdate();
             return TRUE;
+
+            
         } catch (Exception e) {
             System.out.println("ERROR ::registrarUsuario -->"+e.getMessage());
             return FALSE;

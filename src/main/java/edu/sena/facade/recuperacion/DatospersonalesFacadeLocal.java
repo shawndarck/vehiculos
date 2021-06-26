@@ -30,4 +30,6 @@ public interface DatospersonalesFacadeLocal {
 
     int count();
     
+    public boolean registrarDatos(Datospersonales datosReg);
+    
 }

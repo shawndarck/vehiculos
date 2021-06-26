@@ -5,7 +5,9 @@
  */
 package edu.sena.controller.recuperacion;
 
+import edu.sena.entitty.recuperacion.Datospersonales;
 import edu.sena.entitty.recuperacion.Usuario;
+import edu.sena.facade.recuperacion.DatospersonalesFacadeLocal;
 import edu.sena.facade.recuperacion.UsuarioFacadeLocal;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -19,10 +21,16 @@ import javax.ejb.EJB;
 @Named(value = "gestionUsuario")
 @SessionScoped
 public class gestionUsuario implements Serializable {
+
     @EJB
     UsuarioFacadeLocal usuarioFacadeLocal;
+    @EJB
+    DatospersonalesFacadeLocal datospersonalesFacadeLocal;
 
+    
+    
     private Usuario usuReg = new Usuario();
+    private Datospersonales datosReg = new Datospersonales();
 
     /**
      * Creates a new instance of gestionUsuario
@@ -30,8 +38,13 @@ public class gestionUsuario implements Serializable {
     public gestionUsuario() {
     }
     
-    public void registrarUsuario(){
+    public void registrarUsuario() {
         usuarioFacadeLocal.registrarUsuario(usuReg);
+    }
+    
+
+    public void registrarDatos() {
+        datospersonalesFacadeLocal.registrarDatos(datosReg);
     }
 
     public Usuario getUsuReg() {
@@ -40,6 +53,14 @@ public class gestionUsuario implements Serializable {
 
     public void setUsuReg(Usuario usuReg) {
         this.usuReg = usuReg;
+    }
+
+    public Datospersonales getDatosReg() {
+        return datosReg;
+    }
+
+    public void setDatosReg(Datospersonales datosReg) {
+        this.datosReg = datosReg;
     }
 
 }

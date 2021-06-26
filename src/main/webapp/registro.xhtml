@@ -15,9 +15,39 @@
     <h:body>
        <h:form id="formRegistro">
                         <div class="row">
+                            
+                            <div class="col">
+                                <h:outputLabel for="formDocumento">Numero Documento</h:outputLabel>
+                                <h:inputText 
+                                    value="#{gestionUsuario.datosReg.idDatosPersonales}"
+                                    maxlength="20"
+                                    required="true"
+                                    requiredMessage="INGRESE NUMERO DE DOCUMENTO"
+                                    class="form-control" 
+                                    id="formDocumento">
+
+                                </h:inputText>
+                                <h:message for="formDocumento" style="color: red"></h:message>
+                            </div>
+                            
+                            <div class="col">
+                                <h:outputLabel for="formIdUsuario">ingrese su numero de usuario</h:outputLabel>
+                                <h:inputText
+                                    value="#{gestionUsuario.usuReg.idUsuario}"
+                                    maxlength="20"
+                                    required="true"
+                                    requiredMessage="INGRESE NUMERO DE USUARIO"
+                                    class="form-control" 
+                                    id="formIdUsuario">
+
+                                </h:inputText>
+                                <h:message for="formIdUsuario" style="color: red"></h:message>
+                            </div>
+                            
+                            
                             <div class="col">
                                 <h:outputLabel for="formTipoDocumento">Tipo De Documento</h:outputLabel>
-                                <h:selectOneMenu class="form-control" id="formTipoDocumento">
+                                <h:selectOneMenu value="#{gestionUsuario.datosReg.tipoDocumento}" class="form-control" id="formTipoDocumento">
                                     <f:selectItem itemLabel="Cedula de Cuidadania" itemValue="Cedula de Cuidadania"></f:selectItem>
                                     <f:selectItem itemLabel="Targeta de Identidad" itemValue="Targeta de Identidad"></f:selectItem>
                                     <f:selectItem itemLabel="Cedula de Extranjeria" itemValue="Cedula de Extranjeria"></f:selectItem>
@@ -29,64 +59,87 @@
                                 </h:selectOneMenu>
 
                             </div>
+                            
+                            
+                            
                             <div class="col">
-                                <h:outputLabel for="formDocumento">Documento</h:outputLabel>
+                                <h:outputLabel for="formPriNombre">Primer Nombre</h:outputLabel>
                                 <h:inputText 
-                                    maxlength="20"
+                                    value="#{gestionUsuario.datosReg.primerNombre}"
+                                    maxlength="50"
                                     required="true"
-                                    requiredMessage="INGRESE NUMERO DE DOCUMENTO"
+                                    requiredMessage="INGRESE PRIMER NOMBRE"
                                     class="form-control" 
-                                    id="formDocumento">
-
+                                    id="formPriNombre">
                                 </h:inputText>
-                                <h:message for="formDocumento" style="color: red"></h:message>
-                            </div>
-                        </div>
-                        <!-- segundo row-->
+                                <h:message for="formPriNombre" style="color: red"></h:message>
 
-                        <div class="row">
+                            </div>  
+                            
                             <div class="col">
 
-                                <h:outputLabel for="formNombres">Nombres</h:outputLabel>
-                                <h:inputText 
+                                <h:outputLabel for="formSegNombre">Segundo Nombre</h:outputLabel>
+                                <h:inputText
+                                    value="#{gestionUsuario.datosReg.segundoNombre}"
                                     maxlength="50"
                                     required="true"
                                     requiredMessage="INGRESE NOMBRES"
                                     class="form-control" 
-                                    id="formNombres">
+                                    id="formSegNombre">
                                 </h:inputText>
-                                <h:message for="formNombres" style="color: red"></h:message>
-
-                            </div>   
-
-                            <div class="col">
-
-                                <h:outputLabel for="formApellidos">Apellidos</h:outputLabel>
-                                <h:inputText 
-                                    maxlength="50"
-                                    required="true"
-                                    requiredMessage="INGRESE APELLIDOS"
-                                    class="form-control" 
-                                    id="formApellidos">
-                                </h:inputText>
-                                <h:message for="formApellidos" style="color: red"></h:message>
+                                <h:message for="formSegNombre" style="color: red"></h:message>
 
                             </div> 
 
+                            <div class="col">
 
-                        </div>
+                                <h:outputLabel for="formPriApellido">Primer Apellido</h:outputLabel>
+                                <h:inputText 
+                                    value="#{gestionUsuario.datosReg.primerApellido}"
+                                    maxlength="50"
+                                    required="true"
+                                    requiredMessage="INGRESE PRIMER APELLIDO"
+                                    class="form-control" 
+                                    id="formPriApellido">
+                                </h:inputText>
+                                <h:message for="formPriApellido" style="color: red"></h:message>
 
+                            </div> 
+                            
+                            <div class="col">
 
+                                <h:outputLabel for="formSegApellido">Segundo Apellido</h:outputLabel>
+                                <h:inputText 
+                                    value="#{gestionUsuario.datosReg.segundoApellido}"
+                                    maxlength="50"
+                                    required="true"
+                                    requiredMessage="INGRESE SEGUNDO APELLIDO"
+                                    class="form-control" 
+                                    id="formSegApellido">
+                                </h:inputText>
+                                <h:message for="formSegApellido" style="color: red"></h:message>
 
+                            </div> 
+                            
+                            <div class="col">
 
+                                <h:outputLabel for="formTel">Ingrese telefono</h:outputLabel>
+                                <h:inputText
+                                    value="#{gestionUsuario.datosReg.telefono}"
+                                    maxlength="50"
+                                    required="true"
+                                    requiredMessage="INGRESE TELEFONO"
+                                    class="form-control" 
+                                    id="formTel">
+                                </h:inputText>
+                                <h:message for="formTel" style="color: red"></h:message>
 
-
-
-
-
-                        <div class="form-group">
+                            </div> 
+                            
+                            <div class="form-group">
                             <h:outputLabel for="formEmail">Correo Electronico</h:outputLabel>
                             <h:inputText
+                                value="#{gestionUsuario.datosReg.correo}"
                                 requiredMessage="Ingrese un correo Electronico"
                                 maxlength="50"
                                 required="true"
@@ -96,18 +149,7 @@
 
 
                         </div>
-
-
-                        <div class="form-group">
-                            <h:outputLabel for="formPassword">Contraseña</h:outputLabel>
-                            <h:inputSecret 
-                                maxlength="30"
-                                required="true"
-                                requiredMessage="Por favor igrese la contraseña"
-                                class="form-control" id="formPassword"></h:inputSecret>
-                            <h:message for="formPassword" style="color: red"></h:message>
                         </div>
-
 
                         <div class="row">
                             <div class="col-md-6">
@@ -117,12 +159,8 @@
 
                         </div>
                         <br></br>
-                        <h:commandButton  class="btn btn-primary" value="Registrar"></h:commandButton>
+                        <h:commandButton action="#{gestionUsuario.registrarDatos()}" type="button" class="btn btn-success" value="Registrar"></h:commandButton>
                     </h:form>
-
-        <li><a href="Usuari.xhtml" class="button primary icon solid fa-download">Usuarios</a></li>
-
-
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
