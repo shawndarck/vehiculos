@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Inicio de sesion</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"></link>
@@ -12,6 +13,20 @@
             <div class="row" style="padding-top: 10%">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
+
+                    <c:if test="#{gestionUsuario.mensajes.equalsIgnoreCase('RegistOK')}">
+                        <div class="alert alert-primary" role="alert">
+                            REGISTRO SATISFACTORIO!!!
+                        </div>
+                    </c:if>
+
+                    <c:if test="#{gestionUsuario.mensajes.equalsIgnoreCase('RegistBAD')}">
+                        <div class="alert alert-danger" role="alert">
+                           ERROR!!!**** VERIFIQUE SUS DATOS!!! ****
+                        </div>
+                    </c:if>
+
+
 
                     <h:form id="formUsuario">
 
@@ -49,8 +64,8 @@
                             </div>   
 
                             <td></td>
-                              <td></td>
-                                <td></td>
+                            <td></td>
+                            <td></td>
 
                             <div class="form-group">
                                 <h:outputLabel for="formPassword">Contraseña</h:outputLabel>
@@ -83,9 +98,9 @@
                         </div>
                         <br></br>
                         <h:commandButton action="#{gestionUsuario.registrarUsuario()}"  class="btn btn-primary" value="Registrar Usuario"></h:commandButton>
-                        
+
                         <div class="row">
-                        <a href="registro.xhtml">CLICK AQUI PARA CONTINUAR CON EL REGISTRO</a></div>
+                            <a href="registro.xhtml">CLICK AQUI PARA CONTINUAR CON EL REGISTRO</a></div>
 
                     </h:form>
 

@@ -14,6 +14,7 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import javax.ejb.EJB;
 
+
 /**
  *
  * @author Julian Paredes
@@ -31,6 +32,7 @@ public class gestionUsuario implements Serializable {
     
     private Usuario usuReg = new Usuario();
     private Datospersonales datosReg = new Datospersonales();
+    private String mensajes = "";
 
     /**
      * Creates a new instance of gestionUsuario
@@ -39,7 +41,14 @@ public class gestionUsuario implements Serializable {
     }
     
     public void registrarUsuario() {
-        usuarioFacadeLocal.registrarUsuario(usuReg);
+       if(usuarioFacadeLocal.registrarUsuario(usuReg)){
+        mensajes = "RegistOK";          
+       }else{
+           mensajes = "RegistBAD";
+       }
+       
+       
+       
     }
     
 
@@ -61,6 +70,14 @@ public class gestionUsuario implements Serializable {
 
     public void setDatosReg(Datospersonales datosReg) {
         this.datosReg = datosReg;
+    }
+
+    public String getMensajes() {
+        return mensajes;
+    }
+
+    public void setMensajes(String mensajes) {
+        this.mensajes = mensajes;
     }
 
 }

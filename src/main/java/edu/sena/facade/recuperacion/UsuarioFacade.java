@@ -55,4 +55,6 @@ public class UsuarioFacade extends AbstractFacade<Usuario> implements UsuarioFac
     
     
     
+    
+    
 }
