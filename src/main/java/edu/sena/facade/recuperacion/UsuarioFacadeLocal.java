@@ -31,5 +31,6 @@ public interface UsuarioFacadeLocal {
     int count();
     
     public boolean registrarUsuario(Usuario usuReg);
+    public Usuario iniciarSesion(String nombreUsuIn, String claveIn);
     
 }

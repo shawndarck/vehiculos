@@ -14,7 +14,6 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import javax.ejb.EJB;
 
-
 /**
  *
  * @author Julian Paredes
@@ -28,29 +27,39 @@ public class gestionUsuario implements Serializable {
     @EJB
     DatospersonalesFacadeLocal datospersonalesFacadeLocal;
 
-    
-    
     private Usuario usuReg = new Usuario();
+    private Usuario usuLog = new Usuario();
     private Datospersonales datosReg = new Datospersonales();
     private String mensajes = "";
+    private String nombUsuIn = "";
+    private String claveIn = "";
 
     /**
      * Creates a new instance of gestionUsuario
      */
     public gestionUsuario() {
     }
-    
+
     public void registrarUsuario() {
-       if(usuarioFacadeLocal.registrarUsuario(usuReg)){
-        mensajes = "RegistOK";          
-       }else{
-           mensajes = "RegistBAD";
-       }
-       
-       
-       
+        if (usuarioFacadeLocal.registrarUsuario(usuReg)) {
+            mensajes = "RegistOK";
+        } else {
+            mensajes = "RegistBAD";
+        }
+
+        usuReg = new Usuario();
+
+    }
+
+    public void validarUsuario() {
+    usuLog = usuarioFacadeLocal.iniciarSesion(nombUsuIn, claveIn);
+    if(usuLog == null){
+        mensajes = "iniBAD";
+    }else{
+        System.err.println("Usuario encontrado");
     }
     
+    }
 
     public void registrarDatos() {
         datospersonalesFacadeLocal.registrarDatos(datosReg);
@@ -78,6 +87,30 @@ public class gestionUsuario implements Serializable {
 
     public void setMensajes(String mensajes) {
         this.mensajes = mensajes;
+    }
+
+    public Usuario getUsuLog() {
+        return usuLog;
+    }
+
+    public void setUsuLog(Usuario usuLog) {
+        this.usuLog = usuLog;
+    }
+
+    public String getNombUsuIn() {
+        return nombUsuIn;
+    }
+
+    public void setNombUsuIn(String nombUsuIn) {
+        this.nombUsuIn = nombUsuIn;
+    }
+
+    public String getClaveIn() {
+        return claveIn;
+    }
+
+    public void setClaveIn(String claveIn) {
+        this.claveIn = claveIn;
     }
 
 }

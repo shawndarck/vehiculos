@@ -54,7 +54,18 @@ public class UsuarioFacade extends AbstractFacade<Usuario> implements UsuarioFac
     }
     
     
-    
+    @Override
+    public Usuario iniciarSesion(String nombreUsuIn, String claveIn){
+        try {
+            Query q = em.createQuery("SELECT u FROM Usuario u WHERE U.nombreUsuario =:nombreUsuIn AND u.password =:claveIn");
+            q.setParameter("nombreUsuIn", nombreUsuIn);
+            q.setParameter("claveIn", claveIn);
+            return (Usuario) q.getSingleResult();
+        } catch (Exception e) {
+            System.out.println("ERROR ::iniciarSesion -->"+e.getMessage());
+            return null;
+        }
+    }
     
     
 }
