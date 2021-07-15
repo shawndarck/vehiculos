@@ -4,30 +4,47 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-       <title>Inicio de sesion</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"></link>
+       <meta charset="utf-8"></meta>
+        <title>REGISTRO</title>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
+        <link rel="shortcut icon" href="favicon_16.ico"/>
+        <link rel="bookmark" href="favicon_16.ico"/>
+        <!-- site css -->
+        <link rel="stylesheet" href="dist/css/site.min.css"></link>
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700,400italic,600italic,700italic,800italic,300italic" rel="stylesheet" type="text/css"></link>
+        <!-- <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'> -->
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+        <!--[if lt IE 9]>
+          <script src="js/html5shiv.js"></script>
+          <script src="js/respond.min.js"></script>
+        <![endif]-->
+        <script type="text/javascript" src="dist/js/site.min.js"></script>
+        <style>
+            body {
+                padding-top: 40px;
+                padding-bottom: 40px;
+                background-color: #303641;
+                color: #C1C3C6
+            }
+        </style>
     </h:head>
     <h:body>
-        <div class="container-fluid" style="background-color: #e6e6e6">
+        <div class="container-fluid">
             <div class="row" style="padding-top: 10%">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
 
-                   
-
                     <c:if test="#{gestionUsuario.mensajes.equalsIgnoreCase('iniBAD')}">
                         <div class="alert alert-danger" role="alert">
-                           ERROR!!!**** USUARIO NO ENCONTRADO!!! ****
+                            ERROR!!!**** VERIFIQUE SUS DATOS!!! ****
                         </div>
                     </c:if>
 
-
-
                     <h:form id="formUsuario">
-
+                        <h3 class="form-signin-heading"> BIENVENIDO</h3>
                         <div class="row">
                             <div class="col">
-                                <h:outputLabel for="formIdUsuario">INGRESE NOMBRE DE USUARIO</h:outputLabel>
+                                <h:outputLabel for="formIdUsuario">INGRESE SU CORREO DE USUARIO</h:outputLabel>
                                 <h:inputText 
                                     value="#{gestionUsuario.nombUsuIn}"
                                     maxlength="20"
@@ -44,10 +61,6 @@
 
                         <div class="row">
 
-                            <td></td>
-                            <td></td>
-                            <td></td>
-
                             <div class="form-group">
                                 <h:outputLabel for="formPassword">Contraseña</h:outputLabel>
                                 <h:inputSecret 
@@ -59,29 +72,18 @@
                                 <h:message for="formPassword" style="color: red"></h:message>
                             </div>
 
-
-
-
                         </div>
 
-
-
-
-
-
-
                         <div class="row">
-                            <div class="col-md-6">
-                                <a href="recuperar.xhtml">¿olvidó su contraseña?</a></div>
-                            <div class="col-md-6">
-                                <a href="index.xhtml">Ya estoy registrado</a></div>
+                            <div class="col">
+                                <a href="registrarUsu.xhtml">VOLVER A INICIO</a></div>
+
 
                         </div>
                         <br></br>
-                        <h:commandButton action="#{gestionUsuario.validarUsuario()}"  class="btn btn-primary" value="Iniciar Sesion"></h:commandButton>
+                        <h:commandButton action="#{gestionUsuario.validarUsuario()}"  class="btn btn-primary" value="INICIAR SESION"></h:commandButton>
 
-                        <div class="row">
-                            <a href="registro.xhtml">CLICK AQUI PARA CONTINUAR CON EL REGISTRO</a></div>
+
 
                     </h:form>
 
@@ -97,12 +99,33 @@
             <div class="col-md-4"></div>
         </div>
 
-        <li><a href="Usuari.xhtml" class="button primary icon solid fa-download">Usuarios</a></li>
-         
-        
-       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+
+        
+        
+        
+        
+        
+        
+
+                <div class="clearfix"></div>
+                <br></br>
+                <!--footer-->
+                <div class="site-footer login-footer">
+                    <div class="container">
+                        <div class="copyright clearfix text-center">
+                            <p><b>COPYRIGHT 2021© </b></p>
+                            <p>ADSI 2141449 - JULIAN C. PAREDES </p>
+                        </div>
+                    </div>
+                </div>
     </h:body>
 </html>
 
