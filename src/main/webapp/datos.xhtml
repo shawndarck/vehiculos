@@ -1,0 +1,234 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <meta charset="utf-8"></meta>
+        <title>REGISTRO</title>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
+        <link rel="shortcut icon" href="favicon_16.ico"/>
+        <link rel="bookmark" href="favicon_16.ico"/>
+        <!-- site css -->
+        <link rel="stylesheet" href="dist/css/site.min.css"></link>
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700,400italic,600italic,700italic,800italic,300italic" rel="stylesheet" type="text/css"></link>
+        <!-- <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'> -->
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+        <!--[if lt IE 9]>
+          <script src="js/html5shiv.js"></script>
+          <script src="js/respond.min.js"></script>
+        <![endif]-->
+        <script type="text/javascript" src="dist/js/site.min.js"></script>
+        <style>
+            body {
+                padding-top: 40px;
+                padding-bottom: 40px;
+                background-color: #303641;
+                color: #C1C3C6
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <div class="container-fluid">
+            <div class="row" style="padding-top: 10%">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+
+                    <c:if test="#{gestionUsuario.mensajes.equalsIgnoreCase('RegistOK')}">
+                        <div class="alert alert-primary" role="alert">
+                            REGISTRO SATISFACTORIO!!!
+                        </div>
+                    </c:if>
+
+                    <c:if test="#{gestionUsuario.mensajes.equalsIgnoreCase('RegistBAD')}">
+                        <div class="alert alert-danger" role="alert">
+                            ERROR!!!**** VERIFIQUE SUS DATOS!!! ****
+                        </div>
+                    </c:if>
+
+
+
+                    <h:form id="formUsuario">
+                        <h3 class="form-signin-heading"> BIENVENIDO</h3>
+                        <div class="row">
+                            <div class="col">
+                                <h:outputLabel for="formIdUsuario">INGRESE SU NUMERO DE 6 DIGITOS</h:outputLabel>
+                                <h:inputText 
+                                    value="#{gestionUsuario.datosReg.idDatosPersonales}"
+                                    maxlength="20"
+                                    required="true"
+                                    requiredMessage="INGRESE UN NUMERO"
+                                    class="form-control" 
+                                    id="formIdUsuario">
+
+                                </h:inputText>
+                                <h:message for="formIdUsuario" style="color: red"></h:message>
+                            </div>
+                        </div>
+                        <!-- segundo row-->
+
+                        <div class="row">
+                            <div class="col">
+
+                                <h:outputLabel for="formIdUsu">Digite Numero de identificacion con el que se registró</h:outputLabel>
+                                <h:inputText 
+                                    value="#{gestionUsuario.datosReg.usuarioidUsuario}"
+                                    maxlength="50"
+                                    required="true"
+                                    requiredMessage="INGRESE NOMBRE Usuario"
+                                    class="form-control" 
+                                    id="formIdUsu">
+                                </h:inputText>
+                                <h:message for="formIdUsu" style="color: red"></h:message>
+
+                            </div>  
+
+                            <div class="col">
+
+                                <h:outputLabel for="formTiDo">Tipo documento</h:outputLabel>
+                                <h:inputText 
+                                    value="#{gestionUsuario.datosReg.tipoDocumento}"
+                                    maxlength="50"
+                                    required="true"
+                                    requiredMessage="INGRESE NOMBRE Usuario"
+                                    class="form-control" 
+                                    id="formTiDo">
+                                </h:inputText>
+                                <h:message for="formTiDo" style="color: red"></h:message>
+
+                            </div> 
+
+                            <div class="col">
+
+                                <h:outputLabel for="formPriNomb">Primer Nombre</h:outputLabel>
+                                <h:inputText 
+                                    value="#{gestionUsuario.datosReg.primerNombre}"
+                                    maxlength="50"
+                                    required="true"
+                                    requiredMessage="INGRESE NOMBRE Usuario"
+                                    class="form-control" 
+                                    id="formPriNomb">
+                                </h:inputText>
+                                <h:message for="formPriNomb" style="color: red"></h:message>
+
+                            </div> 
+                            <div class="col">
+
+                                <h:outputLabel for="segNom">Segundo nombre</h:outputLabel>
+                                <h:inputText 
+                                    value="#{gestionUsuario.datosReg.segundoNombre}"
+                                    maxlength="50"
+                                    required="true"
+                                    requiredMessage="INGRESE NOMBRE Usuario"
+                                    class="form-control" 
+                                    id="segNom">
+                                </h:inputText>
+                                <h:message for="segNom" style="color: red"></h:message>
+
+                            </div>
+
+                            <div class="col">
+
+                                <h:outputLabel for="formPriApe">Primer Apellido</h:outputLabel>
+                                <h:inputText 
+                                    value="#{gestionUsuario.datosReg.primerApellido}"
+                                    maxlength="50"
+                                    required="true"
+                                    requiredMessage="INGRESE NOMBRE Usuario"
+                                    class="form-control" 
+                                    id="formPriApe">
+                                </h:inputText>
+                                <h:message for="formPriApe" style="color: red"></h:message>
+
+                            </div> 
+                            
+                            <div class="col">
+
+                                <h:outputLabel for="formSegApe">Segundo Apellido</h:outputLabel>
+                                <h:inputText 
+                                    value="#{gestionUsuario.datosReg.segundoApellido}"
+                                    maxlength="50"
+                                    required="true"
+                                    requiredMessage="INGRESE NOMBRE Usuario"
+                                    class="form-control" 
+                                    id="formSegApe">
+                                </h:inputText>
+                                <h:message for="formSegApe" style="color: red"></h:message>
+
+                            </div> 
+
+                            <td></td>
+                            <td></td>
+                            <td></td>
+
+                            <div class="col">
+
+                                <h:outputLabel for="formTel">Telefono</h:outputLabel>
+                                <h:inputText 
+                                    value="#{gestionUsuario.datosReg.telefono}"
+                                    maxlength="50"
+                                    required="true"
+                                    requiredMessage="INGRESE NOMBRE Usuario"
+                                    class="form-control" 
+                                    id="formTel">
+                                </h:inputText>
+                                <h:message for="formTel" style="color: red"></h:message>
+
+                            </div> 
+
+                            <div class="col">
+
+                                <h:outputLabel for="formEmail">Email</h:outputLabel>
+                                <h:inputText 
+                                    value="#{gestionUsuario.datosReg.correo}"
+                                    maxlength="50"
+                                    required="true"
+                                    requiredMessage="INGRESE NOMBRE Usuario"
+                                    class="form-control" 
+                                    id="formEmail">
+                                </h:inputText>
+                                <h:message for="formEmail" style="color: red"></h:message>
+
+                            </div> 
+
+                            
+
+
+
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <a href="index.xhtml">VOLVER A INICIO</a></div>
+
+
+                        </div>
+                        <br></br>
+                        <h:commandButton action="#{gestionUsuario.registrarDatos()}"  class="btn btn-primary" value="Registrar Usuario"></h:commandButton>
+
+
+
+                    </h:form>
+
+
+
+
+
+                    <!-- ojo!!!! -->
+
+                </div>
+
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    </h:body>
+</html>

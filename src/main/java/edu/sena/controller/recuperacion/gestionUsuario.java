@@ -9,10 +9,12 @@ import edu.sena.entitty.recuperacion.Datospersonales;
 import edu.sena.entitty.recuperacion.Usuario;
 import edu.sena.facade.recuperacion.DatospersonalesFacadeLocal;
 import edu.sena.facade.recuperacion.UsuarioFacadeLocal;
+import java.io.IOException;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import javax.ejb.EJB;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -51,18 +53,29 @@ public class gestionUsuario implements Serializable {
 
     }
 
-    public void validarUsuario() {
+    public void validarUsuario() throws IOException {
     usuLog = usuarioFacadeLocal.iniciarSesion(nombUsuIn, claveIn);
     if(usuLog == null){
         mensajes = "iniBAD";
     }else{
-        System.err.println("Usuario encontrado");
+        FacesContext fc = FacesContext.getCurrentInstance();
+        fc.getExternalContext().redirect("usuario/index_usu.xhtml");
     }
     
     }
 
     public void registrarDatos() {
-        datospersonalesFacadeLocal.registrarDatos(datosReg);
+       
+        
+        if (datospersonalesFacadeLocal.registrarDatos(datosReg)) {
+            mensajes = "RegistOK";
+        } else {
+            mensajes = "RegistBAD";
+        }
+
+        datosReg = new Datospersonales();
+        
+        
     }
 
     public Usuario getUsuReg() {
