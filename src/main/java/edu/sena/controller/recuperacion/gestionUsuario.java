@@ -7,12 +7,16 @@ package edu.sena.controller.recuperacion;
 
 import edu.sena.entitty.recuperacion.Datospersonales;
 import edu.sena.entitty.recuperacion.Usuario;
+import edu.sena.entitty.recuperacion.Vehiculos;
+import edu.sena.facade.recuperacion.CategoriaFacadeLocal;
 import edu.sena.facade.recuperacion.DatospersonalesFacadeLocal;
 import edu.sena.facade.recuperacion.UsuarioFacadeLocal;
+import edu.sena.facade.recuperacion.VehiculosFacadeLocal;
 import java.io.IOException;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.context.FacesContext;
 
@@ -28,6 +32,10 @@ public class gestionUsuario implements Serializable {
     UsuarioFacadeLocal usuarioFacadeLocal;
     @EJB
     DatospersonalesFacadeLocal datospersonalesFacadeLocal;
+    @EJB
+    VehiculosFacadeLocal vehiculosFacadeLocal;
+    @EJB 
+    CategoriaFacadeLocal categoriaFacadeLocal;
 
     private Usuario usuReg = new Usuario();
     private Usuario usuLog = new Usuario();
@@ -40,6 +48,14 @@ public class gestionUsuario implements Serializable {
      * Creates a new instance of gestionUsuario
      */
     public gestionUsuario() {
+        
+    }
+    
+    
+    public List<Vehiculos> todosVehiculos(){
+    
+    return vehiculosFacadeLocal.todosVehiculos();
+    
     }
 
     public void registrarUsuario() {
@@ -77,6 +93,7 @@ public class gestionUsuario implements Serializable {
         
         
     }
+    
 
     public Usuario getUsuReg() {
         return usuReg;
